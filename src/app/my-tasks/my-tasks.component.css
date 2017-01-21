@@ -1,0 +1,13 @@
+md-card {
+    margin: 5px 0;
+}
+
+.complete {
+    text-decoration: line-through;
+}
+
+button {
+    position: fixed;
+    right: 24pt;
+    bottom: 24pt;
+}
