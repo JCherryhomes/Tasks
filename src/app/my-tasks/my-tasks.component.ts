@@ -25,4 +25,8 @@ export class MyTasksComponent implements OnInit {
       task.state = TaskState.complete;
     }
   }
+
+  getState(task: Task): string {
+    return TaskState[task.state];
+  }
 }

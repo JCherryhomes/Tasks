@@ -1,4 +1,11 @@
 <md-card>
-  <md-checkbox [checked]="task.state === 2" (change)="setComplete(task)"></md-checkbox> 
-  <span [ngClass]="{complete: task.state === 2}">{{task.description}}</span>
+  <md-card-header>
+    <div md-card-avatar fxLayout="row">
+      <md-icon>person</md-icon>
+    </div>
+    <md-card-title>Jonathan Cherryhomes</md-card-title>
+  </md-card-header>
+  <md-card-content>
+    <span [ngClass]="{complete: task.state === 2}">{{task.description}}</span>
+  </md-card-content>
 </md-card>

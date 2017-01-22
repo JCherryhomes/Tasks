@@ -1,10 +1,16 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-    <div *ngFor="let lane of swimlanes" fxFlex fxLayout="column" class="swimlane">
-      <h4 fxFlex="100">{{lane.title}}</h4>
-      <div *ngFor="let task of lane.tasks" fxFlex="100">
-        <app-my-tasks [task]="task"></app-my-tasks>
-      </div>
-    </div>
+    <md-card *ngFor="let lane of swimlanes" fxFlex fxLayout="column" class="swimlane">
+      <md-card-title>
+        {{lane.title}}
+      </md-card-title>
+      <md-card-content>
+        <div *ngFor="let task of lane.tasks" fxFlex="100">
+          <app-my-tasks [task]="task"></app-my-tasks>
+        </div>
+      </md-card-content>
+    </md-card>
 </div>
 
-<button (click)="addTask()" md-fab color="accent"><md-icon>note_add</md-icon></button>
+<button (click)="addTask()" md-fab color="accent">
+  <md-icon>note_add</md-icon>
+</button>
