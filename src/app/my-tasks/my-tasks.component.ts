@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { TaskService } from '../task.service';
-import { ITask } from '../interfaces/ITask';
+import { Task, TaskState } from '../interfaces/Task';
 import { MdButton } from '@angular/material';
 
 @Component({
@@ -10,22 +10,19 @@ import { MdButton } from '@angular/material';
   providers: [TaskService, MdButton]
 })
 export class MyTasksComponent implements OnInit {
-  tasks: ITask[] = [
-    <ITask>{ complete: false, description: 'This is the first task' },
-    <ITask>{ complete: true, description: 'This is the second task' },
-    <ITask>{ complete: false, description: 'This is the third task' }
-  ];
+  @Input('task') task: Task = <Task>{};
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  setComplete(task: ITask): void {
-    task.complete = !task.complete;
-  }
-
-  addTask(): void {
-    // Testing
+  setComplete(task: Task): void {
+    if (task.state === TaskState.complete){
+      task.state = TaskState.backlog;
+    } else {
+      task.state = TaskState.complete;
+    }
   }
 }

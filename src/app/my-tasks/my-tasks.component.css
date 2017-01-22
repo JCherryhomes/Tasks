@@ -5,9 +5,3 @@ md-card {
 .complete {
     text-decoration: line-through;
 }
-
-button {
-    position: fixed;
-    right: 24pt;
-    bottom: 24pt;
-}

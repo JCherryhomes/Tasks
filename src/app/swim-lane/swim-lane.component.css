@@ -1,0 +1,12 @@
+.swimlane {
+    margin:4px;
+    padding: 4px;
+    border-left: 1px solid #6c6c6c;
+    border-right: 1px solid #6c6c6c;
+}
+
+button {
+    position: fixed;
+    right: 24pt;
+    bottom: 24pt;
+}

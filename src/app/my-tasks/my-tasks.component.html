@@ -1,6 +1,4 @@
-<md-card *ngFor="let task of tasks">
+<md-card>
   <md-checkbox [(ngModel)]="task.complete"></md-checkbox> 
   <span [ngClass]="{complete: task.complete}">{{task.description}}</span>
 </md-card>
-
-<button (click)="addTask()" md-fab color="accent"><md-icon>note_add</md-icon></button>
