@@ -1,4 +1,4 @@
 <md-card>
-  <md-checkbox [(ngModel)]="task.complete"></md-checkbox> 
-  <span [ngClass]="{complete: task.complete}">{{task.description}}</span>
+  <md-checkbox [checked]="task.state === 2" (change)="setComplete(task)"></md-checkbox> 
+  <span [ngClass]="{complete: task.state === 2}">{{task.description}}</span>
 </md-card>
