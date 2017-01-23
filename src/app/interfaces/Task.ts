@@ -1,5 +1,5 @@
 export enum TaskState {
-    backlog,
+    todo,
     inProgress,
     complete
 }
@@ -10,6 +10,7 @@ export class Task {
 }
 
 export class SwimLane {
+    id: number;
     title: string;
     tasks: Array<Task>;
 }

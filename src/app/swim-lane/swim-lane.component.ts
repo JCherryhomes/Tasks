@@ -1,59 +1,44 @@
 import {Component, OnInit} from '@angular/core';
 import {MdGridList} from '@angular/material';
+import { DragulaService } from 'ng2-dragula';
 import {MyTasksComponent} from '../my-tasks/my-tasks.component';
 import {SwimLane, Task, TaskState} from '../interfaces/Task';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-swim-lane',
   templateUrl: './swim-lane.component.html',
   styleUrls: ['./swim-lane.component.css'],
-  providers: [MyTasksComponent, MdGridList]
+  providers: [MyTasksComponent, MdGridList, DragulaService, TaskService]
 })
 export class SwimLaneComponent implements OnInit {
-  swimlanes: SwimLane[] = [
-    {
-      title: 'To Do',
-      tasks: [ <Task>{
-          state: TaskState.backlog,
-          description: 'This is the first task'
-        }, <Task>{
-          state: TaskState.complete,
-          description: 'This is the second task'
-        }, <Task>{
-          state: TaskState.inProgress,
-          description: 'This is the third task'
-        }
-      ]
-    }, {
-      title: 'In Progress',
-      tasks: [<Task>{
-          state: TaskState.backlog,
-          description: 'This is the fourth task'
-        }, <Task>{
-          state: TaskState.complete,
-          description: 'This is the fifth task'
-        }, <Task>{
-          state: TaskState.inProgress,
-          description: 'This is the sixth task'
-        }]
-    }, {
-      title: 'Complete',
-      tasks: [<Task>{
-          state: TaskState.backlog,
-          description: 'This is the seventh task'
-        }, <Task>{
-          state: TaskState.complete,
-          description: 'This is the eighth task'
-        }, <Task>{
-          state: TaskState.inProgress,
-          description: 'This is the ninth task'
-        }]
-    }
-  ];
+  swimlanes: SwimLane[];
 
-  constructor() {}
+  constructor(private dragula: DragulaService, private service: TaskService) {
+    dragula.dropModel.subscribe((value) => {
+      console.log(value);
+      this.onDropModel(value.slice(1));
+    });
 
-  ngOnInit() {}
+    dragula.removeModel.subscribe((value) => {
+      this.onRemoveModel(value.slice(1));
+    });
+  }
+
+  ngOnInit() {
+    this.service.getSwimlanes().subscribe(lanes => this.swimlanes = lanes);
+  }
+
+  private onDropModel(args): void {
+    let [el, target, source] = args;
+    console.log('target', target);
+    console.log('source', source);
+  }
+
+  private onRemoveModel(args) {
+    let [el, source] = args;
+    console.log('remove source', source);
+  }
 
   addTask(): void {
     // Testing

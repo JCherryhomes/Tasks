@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DragulaModule } from 'ng2-dragula';
 
 import { AppComponent } from './app.component';
 import { MyTasksComponent } from './my-tasks/my-tasks.component';
@@ -20,7 +21,8 @@ import { SwimLaneComponent } from './swim-lane/swim-lane.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    FlexLayoutModule.forRoot()
+    FlexLayoutModule.forRoot(), 
+    DragulaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

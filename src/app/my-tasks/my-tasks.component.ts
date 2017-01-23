@@ -18,12 +18,8 @@ export class MyTasksComponent implements OnInit {
   ngOnInit() {
   }
 
-  setComplete(task: Task): void {
-    if (task.state === TaskState.complete){
-      task.state = TaskState.backlog;
-    } else {
-      task.state = TaskState.complete;
-    }
+  changeState(task: Task, state: TaskState): void {
+    task.state = state;
   }
 
   getState(task: Task): string {

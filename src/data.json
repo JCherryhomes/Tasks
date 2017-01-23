@@ -1,0 +1,42 @@
+{
+  "swimlanes": [{
+    "id": 1,
+    "title": "To Do",
+    "tasks": [{
+      "state": 0,
+      "description": "This is the first task"
+    }, {
+      "state": 0,
+      "description": "This is the second task"
+    }, {
+      "state": 0,
+      "description": "This is the third task"
+    }]
+  }, {
+    "id": 2,
+    "title": "In Progress",
+    "tasks": [{
+      "state": 0,
+      "description": "This is the fourth task"
+    }, {
+      "state": 0,
+      "description": "This is the fifth task"
+    }, {
+      "state": 0,
+      "description": "This is the sixth task"
+    }]
+  }, {
+    "id": 3,
+    "title": "Complete",
+    "tasks": [{
+      "state": 0,
+      "description": "This is the seventh task"
+    }, {
+      "state": 0,
+      "description": "This is the eighth task"
+    }, {
+      "state": 0,
+      "description": "This is the ninth task"
+    }]
+  }]
+}
